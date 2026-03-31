@@ -1,0 +1,15 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Python (if you add scripts later)
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# IDE (optional — remove these lines if you want to commit IDE settings)
+.idea/
