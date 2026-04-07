@@ -5,6 +5,9 @@ Thumbs.db
 *.swo
 *~
 
+# Secrets (API keys)
+.env
+
 # Python (if you add scripts later)
 .venv/
 venv/

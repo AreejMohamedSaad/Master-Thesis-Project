@@ -85,4 +85,4 @@ For **my** thesis, I see the **same architectural idea**: specialized agents, or
 
 ---
 
-*Use together with `pre-meeting-learning-guide.md` and `meeting-prep-april-7.md`.*
+*Use together with [`pre-meeting-learning-guide.md`](pre-meeting-learning-guide.md) and [`meeting-prep-april-7.md`](meeting-prep-april-7.md) (same `preparation/` folder). Full brief: [`meeting-prep-integrated-april-7.md`](meeting-prep-integrated-april-7.md).*

@@ -1,15 +1,17 @@
 # Meeting prep: supervisor meeting (April 7, 11:00)
 
+**Path note:** This file is in **`preparation/`**. Resources at repo root use **`../`** (e.g. [`../resourses/topic.tex`](../resourses/topic.tex)). Prep Markdown files in this folder use **bare names**.
+
 Use this as a living checklist. Tick items as you complete them.
 
 ---
 
 ## Before the meeting: reading
 
-- [ ] Read **fully** (18 pages): `resourses/Agentic_AI_Architecture_for_Evaluating_and_Improving_Reinforcement_Learning_Pipelines-2.pdf`  
+- [ ] Read **fully** (18 pages): [`../resourses/Agentic_AI_Architecture_for_Evaluating_and_Improving_Reinforcement_Learning_Pipelines-2.pdf`](../resourses/Agentic_AI_Architecture_for_Evaluating_and_Improving_Reinforcement_Learning_Pipelines-2.pdf) (if present)  
   - Note: RQs, agent roles, pipeline + validation gates, evaluation metrics, threats to validity.
-- [ ] **Skim** `resourses/Agentic_Design_Patterns.pdf`: table of contents only, then read **only** sections tied to orchestration / multi-agent / communication (as needed).
-- [ ] Re-read `resourses/topic.tex` and **extend Phase 3** in writing (detector inputs/outputs, evaluation idea).
+- [ ] **Skim** [`../resourses/Agentic_Design_Patterns.pdf`](../resourses/Agentic_Design_Patterns.pdf) (if present): table of contents only, then read **only** sections tied to orchestration / multi-agent / communication (as needed).
+- [ ] Re-read [`../resourses/topic.tex`](../resourses/topic.tex) and **extend Phase 3** in writing (detector inputs/outputs, evaluation idea).
 
 ---
 
@@ -56,10 +58,11 @@ Fill in after April 7:
 
 | File | Purpose |
 |------|---------|
-| `resourses/topic.tex` | Official topic phases (extend Phase 3) |
-| `agentic-ai-and-rl-primer.md` | Concepts + reading list |
-| `collaboration-insight-thesis-foundation.md` | Broader thesis-oriented notes (optional) |
-| `meeting-prep-april-7.md` | This checklist |
+| [`../resourses/topic.tex`](../resourses/topic.tex) | Official topic phases (extend Phase 3) |
+| [`agentic-ai-and-rl-primer.md`](agentic-ai-and-rl-primer.md) | Concepts + reading list |
+| [`collaboration-insight-thesis-foundation.md`](collaboration-insight-thesis-foundation.md) | Broader thesis-oriented notes (optional) |
+| [`meeting-prep-integrated-april-7.md`](meeting-prep-integrated-april-7.md) | Full integrated cheat sheet |
+| [`meeting-prep-april-7.md`](meeting-prep-april-7.md) | This checklist |
 
 ---
 

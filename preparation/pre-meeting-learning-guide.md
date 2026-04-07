@@ -1,6 +1,8 @@
 # What to understand before the supervisor meeting (April 7)
 
-This guide answers: **Is `agentic-ai-and-rl-primer.md` enough?**  
+**Paths:** This file is in **`preparation/`**. The primer and related `.md` files use **same-folder** names; [`../resourses/topic.tex`](../resourses/topic.tex) is at repo root under `resourses/`.
+
+This guide answers: **Is [`agentic-ai-and-rl-primer.md`](agentic-ai-and-rl-primer.md) enough?**  
 **No** — it is **general background**. After your professor’s email, he expects you to **engage with his materials** (especially the **RL + agentic architecture paper** and **`topic.tex`**), not only generic concepts.
 
 Use this file as your **checklist**. Tick boxes when done.
@@ -104,11 +106,12 @@ He does **not** need you to be an RL researcher in week one — he needs **engag
 
 | File | Role for this meeting |
 |------|-------------------------|
-| `agentic-ai-and-rl-primer.md` | Concepts only — **not** sufficient alone. |
+| [`agentic-ai-and-rl-primer.md`](agentic-ai-and-rl-primer.md) | Concepts only — **not** sufficient alone. |
 | `Agentic_AI_Architecture_..._Pipelines-2.pdf` | **Core** — must read. |
 | `topic.tex` | **Core** — your thesis contract. |
 | `Agentic_Design_Patterns.pdf` | **Optional** skim. |
-| `meeting-prep-april-7.md` | Questions + checklist. |
+| [`meeting-prep-april-7.md`](meeting-prep-april-7.md) | Questions + checklist. |
+| [`meeting-prep-integrated-april-7.md`](meeting-prep-integrated-april-7.md) | Full integrated brief. |
 | `pre-meeting-learning-guide.md` | **This file** — what “done” means. |
 
 ---
