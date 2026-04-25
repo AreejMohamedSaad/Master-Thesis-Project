@@ -1,0 +1,3 @@
+# Install editable package: pip install -e .
+# Or minimal deps only:
+mcp>=1.8

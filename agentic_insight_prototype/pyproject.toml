@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "insight-proto"
+version = "0.1.0"
+description = "Minimal agentic insight prototype: file selection, MCP server/client, custom orchestrator"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+insight-mcp-server = "insight_proto.mcp_server.server:main"
+insight-mcp-client = "insight_proto.mcp_client.stdio_client:main_sync"
+insight-scan-external-repo = "insight_proto.cli.scan_external_repo:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

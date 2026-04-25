@@ -1,0 +1,22 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+
+# Default output from scripts/scan (no need to commit large scan dumps)
+scan_results.json
+scan_results*.json
+artifacts/*.json
+results/*.json
+
+# Local notes (not tracked)
+docs/LOCAL_COMMANDS_REF.md
+docs/notes.md
+docs/progress.md
+docs/notes2.md
+myREADME.md

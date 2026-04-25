@@ -1,0 +1,28 @@
+
+Phase 1: Identifying the "Collaboration Footprint"
+
+Identify Heterogeneous Repositories: Select >100 open-source repositories that involve Agentic AI systems multi-agent systems, LLM pipelines (e.g., CrewAI, LangGraph, or ROS-based agent projects).
+Artifact Harvesting: Extract not just the source code, but also the "collaboration footprint":
+Orchestration Logic: Classes or functions that handle task delegation (e.g., Supervisor, Handoff, Process).
+Communication Channels: Where data is passed between agents (e.g., MessageQueue, SharedState, ContextStore).
+Validation Gates: Code that checks an agent's output before the next agent takes over.
+
+Phase 2: Detecting the Smells (The Mining Task)
+
+You should scan the repository for these specific smells that indicate a failing agentic architecture:
+Some examples:
+
+Erroneous data propagates through the pipeline, causing "compounding errors".
+Multiple agents performing "Direct Mutation" on a shared state without locks.
+Inconsistent assumptions and race conditions.	
+Missing observability or logging traces for tool calls and reasoning.
+Impossible to debug why an agent made a specific physical decision.	
+Circular dependencies in agent planning.
+Agentic systems getting stuck in a reasoning loop, draining resources.
+Hard-coded prompts that lack explicit, measurable KPIs or goal models.
+The agent's actions slowly diverge from the human's intended physical goal.
+
+
+Phase 3: Agentic AI Approach for Smell Detection
+
+Configure the "Detector" Agent: Use an Agentic AI framework to automate the search for "indicators".
