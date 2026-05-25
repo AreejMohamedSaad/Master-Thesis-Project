@@ -19,6 +19,7 @@ dev = ["pytest>=8.0"]
 insight-mcp-server = "insight_proto.mcp_server.server:main"
 insight-mcp-client = "insight_proto.mcp_client.stdio_client:main_sync"
 insight-scan-external-repo = "insight_proto.cli.scan_external_repo:main"
+insight-run-detection = "insight_proto.cli.run_detection:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
