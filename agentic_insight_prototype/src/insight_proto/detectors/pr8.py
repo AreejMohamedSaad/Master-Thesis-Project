@@ -8,7 +8,7 @@ from typing import Any
 
 RULE_ID = "PR8"
 
-# Handoff / artifact gates (thesis-aligned PR8).
+# Handoff / artifact gates (PR8).
 _GATE_PATTERNS: tuple[tuple[str, re.Pattern[str], str], ...] = (
     (
         "def_gate",

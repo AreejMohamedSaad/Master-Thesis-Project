@@ -14,9 +14,10 @@ scan_results*.json
 artifacts/*.json
 results/*.json
 
-# Local notes (not tracked)
+# Local / personal notes (generic patterns only)
+docs/notes*.md
 docs/LOCAL_COMMANDS_REF.md
-docs/notes.md
 docs/progress.md
-docs/notes2.md
 myREADME.md
+
+.idea/

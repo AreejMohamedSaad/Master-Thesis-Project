@@ -13,10 +13,10 @@ _NAMED_PATTERNS: tuple[tuple[str, re.Pattern[str], str], ...] = (
     (
         "class_router",
         re.compile(
-            r"^\s*class\s+\w*(Router|Supervisor|Orchestrat\w*|Handoff|Delegate)\w*\s*[\(:]",
+            r"^\s*class\s+\w*(Router|Orchestrat\w*|Handoff|Delegate)\w*\s*[\(:]",
             re.IGNORECASE,
         ),
-        "class Router/Supervisor/Orchestrator/Handoff",
+        "class Router/Orchestrator/Handoff",
     ),
     (
         "def_route",
@@ -29,9 +29,9 @@ _NAMED_PATTERNS: tuple[tuple[str, re.Pattern[str], str], ...] = (
     (
         "named_identifier",
         re.compile(
-            r"\b(Router|Supervisor|Orchestrat\w*|HandoffTool|Handoff)\b",
+            r"\b(Router|Orchestrat\w*|HandoffTool|Handoff)\b",
         ),
-        "Router/Supervisor/Orchestrator/Handoff identifier",
+        "Router/Orchestrator/Handoff identifier",
     ),
     ("langgraph_edges", re.compile(r"\badd_conditional_edges\s*\("), "add_conditional_edges("),
     ("langgraph_graph", re.compile(r"\bStateGraph\s*\("), "StateGraph("),
@@ -47,10 +47,9 @@ _KEYWORD_PATTERNS: tuple[tuple[str, re.Pattern[str], str], ...] = (
     ("kw_assign_to", re.compile(r"\bassign_to\b", re.IGNORECASE), "assign_to"),
     ("kw_dispatch", re.compile(r"\bdispatch\b", re.IGNORECASE), "dispatch"),
     ("kw_route_to", re.compile(r"\broute_to\b", re.IGNORECASE), "route_to"),
-    ("kw_supervisor", re.compile(r"\bsupervisor\b", re.IGNORECASE), "supervisor"),
 )
 
-_PATH_BOOST = re.compile(r"(router|supervisor|orchestrat|handoff|delegate)", re.IGNORECASE)
+_PATH_BOOST = re.compile(r"(router|orchestrat|handoff|delegate)", re.IGNORECASE)
 
 
 def _read_lines(path: Path) -> list[str]:
@@ -119,7 +118,7 @@ def detect_b1_routing(path: str | Path) -> dict[str, Any]:
     Scan one Python file for B1 (routing / handoff) evidence.
 
     Verdicts:
-      - present: named router/supervisor component, framework routing API, path boost,
+      - present: named router/orchestrator component, framework routing API, path boost,
         or >=3 routing keyword hits
       - unclear: 1-2 routing keywords only
       - absent: no routing signals
@@ -141,7 +140,6 @@ def detect_b1_routing(path: str | Path) -> dict[str, Any]:
     keywords = _collect_matches(lines, _KEYWORD_PATTERNS, skip_comments=True)
     path_hits = _path_boost(file_path)
 
-    # Unique keyword signal types (not line count)
     keyword_types = {item["signal"] for item in keywords}
 
     if named or path_hits or len(keyword_types) >= 3:

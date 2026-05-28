@@ -6,10 +6,10 @@ from insight_proto.detectors.b1 import detect_b1_routing
 from insight_proto.orchestrator.pipeline import run_detection
 
 
-def test_detect_b1_present_supervisor_class(tmp_path: Path) -> None:
+def test_detect_b1_present_router_class(tmp_path: Path) -> None:
     target = tmp_path / "agents.py"
     target.write_text(
-        "class SupervisorAgent:\n"
+        "class RouterAgent:\n"
         "    def route(self, task: str) -> str:\n"
         "        return 'coder'\n",
         encoding="utf-8",
@@ -38,7 +38,7 @@ def test_detect_b1_present_many_keywords(tmp_path: Path) -> None:
 
 
 def test_detect_b1_present_path_boost(tmp_path: Path) -> None:
-    target = tmp_path / "supervisor.py"
+    target = tmp_path / "router_agent.py"
     target.write_text("def run():\n    pass\n", encoding="utf-8")
 
     result = detect_b1_routing(target)

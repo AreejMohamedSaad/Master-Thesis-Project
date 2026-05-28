@@ -86,7 +86,7 @@ Multi-agent pipelines fail in ways that are hard to replay: one agent’s output
 
 ### Example pass
 
-A supervisor module logs each delegation: `logger.info("handoff", extra={"from_agent": "planner", "to_agent": "coder", "task_id": task_id})`.
+An orchestrator module logs each delegation: `logger.info("handoff", extra={"from_agent": "planner", "to_agent": "coder", "task_id": task_id})`.
 
 ### Example fail
 
@@ -161,14 +161,14 @@ The **orchestration logic** slice of the collaboration footprint (`topic.tex` Ph
 ### Problem it addresses
 
 - Unclear delegation boundaries between agents
-- No explicit supervisor / router component
+- No explicit router / orchestrator component
 - Handoffs implicit in shared state updates only
 
 ### Evidence in code (what to search for)
 
 | Signal type | Examples |
 |-------------|----------|
-| Names | `Router`, `Supervisor`, `Orchestrator`, `Handoff`, `Delegate`, `Route` in classes/functions |
+| Names | `Router`, `Orchestrator`, `Handoff`, `Delegate`, `Route` in classes/functions |
 | Framework patterns | LangGraph `add_conditional_edges`, CrewAI `Process`, AutoGen `GroupChat`, `route` methods |
 | Keywords | `handoff`, `delegate`, `routing`, `next_agent`, `assign_to`, `dispatch` |
 | Control flow | Branch that selects among named agents or tools based on state / intent |
@@ -176,13 +176,13 @@ The **orchestration logic** slice of the collaboration footprint (`topic.tex` Ph
 ### Detector v1 method
 
 - **Primary:** keyword scan (case-insensitive) for routing vocabulary in file path and content
-- **Secondary:** class/function name patterns via regex `\b(Router|Supervisor|Orchestrat\w*|Handoff)\b`
-- **Path boost:** filenames like `*router*`, `*supervisor*`, `*orchestrat*`
+- **Secondary:** class/function name patterns via regex `\b(Router|Orchestrat\w*|Handoff)\b`
+- **Path boost:** filenames like `*router*`, `*orchestrat*`
 - **Verdict:** `present` if named component or ≥3 routing keywords; `unclear` if only generic `if/else`; `absent` if no routing signals in an orchestration candidate file
 
 ### Example pass
 
-A `SupervisorAgent` class with `route(task) -> Agent` or explicit `handoff(to="researcher", payload=...)`.
+An `OrchestratorAgent` class with `route(task) -> Agent` or explicit `handoff(to="researcher", payload=...)`.
 
 ### Example fail
 
@@ -317,7 +317,7 @@ Each file × rule entry in the JSON report:
 ```json
 {
   "rule_id": "PR2",
-  "path": "src/agents/supervisor.py",
+  "path": "src/agents/orchestrator.py",
   "verdict": "present",
   "confidence": "high",
   "evidence": [
@@ -340,7 +340,7 @@ Optional later: LLM pass on ambiguous files only, not part of v1.
 
 ---
 
-## Open questions (for supervisor)
+## Open questions
 
 1. **PR6 vs B5 priority:** keep both in v1, or implement PR6 after PR2/PR8/B1 stabilize?
 2. **PR2 strictness:** count any `logging` call, or require structured / step-level logs?

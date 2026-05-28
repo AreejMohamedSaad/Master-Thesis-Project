@@ -1,10 +1,14 @@
 # Agentic Insight Prototype
 
-This repository contains a **first working prototype** for the thesis project: a small, explicit **file-selection pipeline** (scan → categorize → rank) and an **MCP server** exposing that pipeline as callable tools.
+Prototype for the thesis pipeline: **file selection** (rank repo files) and **practice detection** (PR2, PR8, B1 heuristics on selected paths).
 
-For detailed documentation, start here:
+## Docs
 
-- `documentation/README_01_file-selection-and-mcp.md`
+- [README_01](documentation/README_01_file-selection-and-mcp.md) : file selection, MCP, scan CLI
+- [README_03](documentation/README_03_detection-v1-pr2.md) : PR2 logging detector
+- [README_04](documentation/README_04_detection-v1-pr8.md) : PR8 validation detector
+- [README_05](documentation/README_05_detection-three-rules-two-repos.md) : three rules, TRL + CrewAI
+- [CATALOG](docs/CATALOG.md) : practice rules
 
 ## Quickstart
 
@@ -16,31 +20,24 @@ pip install -e ".[dev]"
 pytest -q
 ```
 
-## Run
+## Commands
 
-### In-process pipeline (no MCP)
+| Command | Purpose |
+|---------|---------|
+| `insight-scan-external-repo` | Clone repo, run file selection, write JSON |
+| `insight-run-detection` | Run PR2/PR8/B1 on paths from scan JSON |
+| `insight-mcp-client` | Smoke-test MCP tools |
+| `insight-mcp-server` | MCP server (stdio) |
 
-```bash
-python -c "from insight_proto.orchestrator.pipeline import run_file_selection; import json; print(json.dumps(run_file_selection('.'), indent=2))"
-```
-
-### MCP smoke test (recommended)
-
-This starts the MCP server as a subprocess and calls a couple of tools.
-
-```bash
-insight-mcp-client .
-```
-
-### External scan output location
-
-`insight-scan-external-repo` writes a JSON report. If `-o` is omitted, it defaults to `results/scan_results.json`.
-
-### MCP server (stdio)
-
-Use this if you want to connect from an MCP host (e.g., an inspector / desktop client).
+Detection example:
 
 ```bash
-insight-mcp-server
+insight-run-detection \
+  --scan results/2026-04-30_trl_core_scan.json \
+  --root ~/code/trl \
+  --top 15 \
+  --rules PR2,PR8,B1 \
+  -o results/detection_report_trl_top15_pr2_pr8_b1.json
 ```
 
+Scan JSON defaults to `results/` if `-o` is omitted. Large `results/*.json` reports are gitignored; regenerate locally.
